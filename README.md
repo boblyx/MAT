@@ -237,8 +237,8 @@ function drawMats(
         let fs = [,,getLinePathStr, getQuadBezierPathStr, getCubicBezierPathStr];
 
         traverseEdges(cpNode, function(cpNode) {
-            if (cpNode.isTerminating()) { return; }
-            let bezier = cpNode.matCurveToNextVertex;
+            if (isTerminating(cpNode)) { return; }
+            let bezier = getCurveToNext(cpNode);
             if (!bezier) { return; }
 
             let $path = document.createElementNS(NS, 'path');
